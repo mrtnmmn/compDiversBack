@@ -1,5 +1,6 @@
 package com.avalon.compDivers.api.controllers;
 
+import com.avalon.compDivers.api.dto.LoadoutDTO;
 import com.avalon.compDivers.api.models.Loadout;
 import com.avalon.compDivers.api.services.LoadoutService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class LoadoutController {
     private LoadoutService loadoutService;
 
     @GetMapping
-    public List<Loadout> getLoadouts(HttpServletRequest request) {
+    public List<LoadoutDTO> getLoadouts(HttpServletRequest request) {
         return loadoutService.getLoadoutsForUser(request);
     }
 
