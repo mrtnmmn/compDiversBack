@@ -1,5 +1,6 @@
 package com.avloon.compDivers.utils;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -7,11 +8,14 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.Optional;
 
 @Component
 public class JwtUtil {
 
-    private static final String SECRET_KEY = System.getenv("JWT_SECRET_KEY");
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String SECRET_KEY = Optional.ofNullable(dotenv.get("JWT_SECRET_KEY"))
+            .orElseThrow(() -> new IllegalStateException("JWT_SECRET_KEY is not set"));
     private static final Key KEY = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
 
     public String generateToken(String username) {
