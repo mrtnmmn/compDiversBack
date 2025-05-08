@@ -21,12 +21,12 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    public Long getIid() {
+    public Long getId() {
         return id;
     }
 
-    public void setIid(Long iid) {
-        this.id = iid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public UUID getUuid() {
@@ -53,8 +53,8 @@ public class User {
         this.password = password;
     }
 
-    public User(Long iid, UUID uuid, String username, String password) {
-        this.id = iid;
+    public User(Long id, UUID uuid, String username, String password) {
+        this.id = id;
         this.uuid = uuid;
         this.username = username;
         this.password = password;
