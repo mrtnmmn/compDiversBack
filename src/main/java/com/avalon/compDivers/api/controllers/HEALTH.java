@@ -1,4 +1,4 @@
-package com.avloon.compDivers.api.controllers;
+package com.avalon.compDivers.api.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

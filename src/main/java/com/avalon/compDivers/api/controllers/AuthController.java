@@ -1,10 +1,10 @@
-package com.avloon.compDivers.api.controllers;
+package com.avalon.compDivers.api.controllers;
 
-import com.avloon.compDivers.api.dto.AuthRequest;
-import com.avloon.compDivers.api.dto.AuthResponse;
-import com.avloon.compDivers.api.models.User;
-import com.avloon.compDivers.api.services.UserService;
-import com.avloon.compDivers.utils.JwtUtil;
+import com.avalon.compDivers.api.dto.AuthRequest;
+import com.avalon.compDivers.api.dto.AuthResponse;
+import com.avalon.compDivers.api.models.User;
+import com.avalon.compDivers.api.services.UserService;
+import com.avalon.compDivers.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.avloon.compDivers.api.models;
+package com.avalon.compDivers.api.models;
 
 import jakarta.persistence.*;
 

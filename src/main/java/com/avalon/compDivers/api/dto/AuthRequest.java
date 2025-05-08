@@ -1,4 +1,4 @@
-package com.avloon.compDivers.api.dto;
+package com.avalon.compDivers.api.dto;
 
 public class AuthRequest {
     public String username;

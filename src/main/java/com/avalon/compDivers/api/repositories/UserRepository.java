@@ -1,6 +1,6 @@
-package com.avloon.compDivers.api.repositories;
+package com.avalon.compDivers.api.repositories;
 
-import com.avloon.compDivers.api.models.User;
+import com.avalon.compDivers.api.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

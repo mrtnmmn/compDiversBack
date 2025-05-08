@@ -1,7 +1,7 @@
-package com.avloon.compDivers.api.services;
+package com.avalon.compDivers.api.services;
 
-import com.avloon.compDivers.api.models.User;
-import com.avloon.compDivers.api.repositories.UserRepository;
+import com.avalon.compDivers.api.models.User;
+import com.avalon.compDivers.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.avloon.compDivers;
+package com.avalon.compDivers;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;

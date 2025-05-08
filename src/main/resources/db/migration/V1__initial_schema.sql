@@ -1,0 +1,6 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    uuid UUID NOT NULL UNIQUE,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
