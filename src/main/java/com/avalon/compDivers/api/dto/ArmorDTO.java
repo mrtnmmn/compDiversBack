@@ -7,12 +7,14 @@ public class ArmorDTO {
     private String name;
     private String category;
     private ArmorPassiveDTO armorPassive;
+    private ArmorStatsDTO armorStats;
 
-    public ArmorDTO(UUID uuid, String name, String category, ArmorPassiveDTO armorPassive) {
+    public ArmorDTO(UUID uuid, String name, String category, ArmorPassiveDTO armorPassive, ArmorStatsDTO armorStats) {
         this.uuid = uuid;
         this.name = name;
         this.category = category;
         this.armorPassive = armorPassive;
+        this.armorStats = armorStats;
     }
 
     public ArmorDTO() {
@@ -48,5 +50,13 @@ public class ArmorDTO {
 
     public void setArmorPassive(ArmorPassiveDTO armorPassive) {
         this.armorPassive = armorPassive;
+    }
+
+    public ArmorStatsDTO getArmorStats() {
+        return armorStats;
+    }
+
+    public void setArmorStats(ArmorStatsDTO armorStats) {
+        this.armorStats = armorStats;
     }
 }

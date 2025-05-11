@@ -2,6 +2,7 @@ package com.avalon.compDivers.api.mappers;
 
 import com.avalon.compDivers.api.dto.ArmorDTO;
 import com.avalon.compDivers.api.models.Armor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,6 +10,9 @@ import java.util.List;
 @Component
 public class ArmorMapper {
     private final ArmorPassiveMapper armorPassiveMapper;
+
+    @Autowired
+    private ArmorStatsMapper armorStatsMapper;
 
     public ArmorMapper(ArmorPassiveMapper armorPassiveMapper) {
         this.armorPassiveMapper = armorPassiveMapper;
@@ -22,6 +26,7 @@ public class ArmorMapper {
         if (armor.getArmorPassive() != null) {
             dto.setArmorPassive(armorPassiveMapper.toDto(armor.getArmorPassive()));
         }
+        dto.setArmorStats(armor.getArmorStats() != null ? armorStatsMapper.toDto(armor.getArmorStats()) : null);
         return dto;
     }
 

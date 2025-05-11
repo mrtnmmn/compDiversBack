@@ -25,12 +25,17 @@ public class Armor {
     @JoinColumn(name = "armor_passive_id", foreignKey = @ForeignKey(name = "fk_armor_passive"))
     private ArmorPassive armorPassive;
 
-    public Armor(Long id, UUID uuid, String name, String category, ArmorPassive armorPassive) {
+    @OneToOne(mappedBy = "armor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private ArmorStats armorStats;
+
+
+    public Armor(Long id, UUID uuid, String name, String category, ArmorPassive armorPassive, ArmorStats armorStats) {
         this.id = id;
         this.uuid = uuid;
         this.name = name;
         this.category = category;
         this.armorPassive = armorPassive;
+        this.armorStats = armorStats;
     }
 
     public Armor() {
@@ -74,5 +79,13 @@ public class Armor {
 
     public void setArmorPassive(ArmorPassive armorPassive) {
         this.armorPassive = armorPassive;
+    }
+
+    public ArmorStats getArmorStats() {
+        return armorStats;
+    }
+
+    public void setArmorStats(ArmorStats armorStats) {
+        this.armorStats = armorStats;
     }
 }
