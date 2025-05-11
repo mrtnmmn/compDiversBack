@@ -18,9 +18,14 @@ public class Warbond {
     @Column(nullable = false)
     private String name;
 
-    public Warbond(Long id, UUID uuid, String name) {
-        this.id = id;
-        this.uuid = uuid;
+    @PrePersist
+    public void ensureUuid() {
+        if (this.uuid == null) {
+            this.uuid = UUID.randomUUID();
+        }
+    }
+
+    public Warbond(String name) {
         this.name = name;
     }
 

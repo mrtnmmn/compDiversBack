@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.avalon.compDivers.api.models.ArmorPassive;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -13,13 +14,9 @@ import java.util.List;
 @Service
 public class ArmorPassiveLoader {
 
-    private final ArmorPassiveRepository repository;
+    @Autowired
+    private ArmorPassiveRepository repository;
 
-    public ArmorPassiveLoader(ArmorPassiveRepository repository) {
-        this.repository = repository;
-    }
-
-    @PostConstruct
     public void loadData() {
         try {
             ObjectMapper mapper = new ObjectMapper();

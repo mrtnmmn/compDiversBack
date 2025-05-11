@@ -21,15 +21,24 @@ public class PrimaryWeapon {
     @Column(nullable = false)
     private String category;
 
+    @Column(nullable = false)
+    private String penetration;
+
     @ManyToOne
     @JoinColumn(name = "warbond_id")
     private Warbond warbond;
 
-    public PrimaryWeapon(Long id, UUID uuid, String name, String category, Warbond warbond) {
-        this.id = id;
-        this.uuid = uuid;
+    @PrePersist
+    public void ensureUuid() {
+        if (this.uuid == null) {
+            this.uuid = UUID.randomUUID();
+        }
+    }
+
+    public PrimaryWeapon(String name, String category, String penetration, Warbond warbond) {
         this.name = name;
         this.category = category;
+        this.penetration = penetration;
         this. warbond = warbond;
     }
 
@@ -66,6 +75,14 @@ public class PrimaryWeapon {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getPenetration() {
+        return penetration;
+    }
+
+    public void setPenetration(String penetration) {
+        this.penetration = penetration;
     }
 
     public Warbond getWarbond() {

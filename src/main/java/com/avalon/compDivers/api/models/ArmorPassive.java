@@ -21,19 +21,19 @@ public class ArmorPassive {
     @Column(nullable = false)
     private String category;
 
+    @PrePersist
+    public void ensureUuid() {
+        if (this.uuid == null) {
+            this.uuid = UUID.randomUUID();
+        }
+    }
+
     public ArmorPassive(String name, String category) {
         this.name = name;
         this.category = category;
     }
 
     public ArmorPassive() {
-    }
-
-    @PrePersist
-    public void ensureUuid() {
-        if (this.uuid == null) {
-            this.uuid = UUID.randomUUID();
-        }
     }
 
     public Long getId() {
