@@ -21,11 +21,16 @@ public class Booster {
     @Column(nullable = false)
     private String description;
 
-    public Booster(Long id, UUID uuid, String name, String description) {
+    @ManyToOne
+    @JoinColumn(name = "warbond_id")
+    private Warbond warbond;
+
+    public Booster(Long id, UUID uuid, String name, String description, Warbond warbond) {
         this.id = id;
         this.uuid = uuid;
         this.name = name;
         this.description = description;
+        this.warbond = warbond;
     }
 
     public Booster() {
@@ -61,5 +66,13 @@ public class Booster {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Warbond getWarbond() {
+        return warbond;
+    }
+
+    public void setWarbond(Warbond warbond) {
+        this.warbond = warbond;
     }
 }

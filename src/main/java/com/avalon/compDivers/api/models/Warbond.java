@@ -1,13 +1,12 @@
 package com.avalon.compDivers.api.models;
 
-import com.avalon.compDivers.api.dto.WarbondDTO;
 import jakarta.persistence.*;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "throwables")
-public class Throwable {
+@Table(name = "warbonds")
+public class Warbond {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,22 +18,13 @@ public class Throwable {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String category;
-
-    @ManyToOne
-    @JoinColumn(name = "warbond_id")
-    private Warbond warbond;
-
-    public Throwable(Long id, UUID uuid, String name, String category, Warbond warbond) {
+    public Warbond(Long id, UUID uuid, String name) {
         this.id = id;
         this.uuid = uuid;
         this.name = name;
-        this.category = category;
-        this.warbond = warbond;
     }
 
-    public Throwable() {
+    public Warbond() {
     }
 
     public Long getId() {
@@ -59,21 +49,5 @@ public class Throwable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Warbond getWarbond() {
-        return warbond;
-    }
-
-    public void setWarbond(Warbond warbond) {
-        this.warbond = warbond;
     }
 }

@@ -21,11 +21,16 @@ public class PrimaryWeapon {
     @Column(nullable = false)
     private String category;
 
-    public PrimaryWeapon(Long id, UUID uuid, String name, String category) {
+    @ManyToOne
+    @JoinColumn(name = "warbond_id")
+    private Warbond warbond;
+
+    public PrimaryWeapon(Long id, UUID uuid, String name, String category, Warbond warbond) {
         this.id = id;
         this.uuid = uuid;
         this.name = name;
         this.category = category;
+        this. warbond = warbond;
     }
 
     public PrimaryWeapon() {
@@ -61,5 +66,13 @@ public class PrimaryWeapon {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Warbond getWarbond() {
+        return warbond;
+    }
+
+    public void setWarbond(Warbond warbond) {
+        this.warbond = warbond;
     }
 }

@@ -6,11 +6,13 @@ public class BoosterDTO {
     private UUID uuid;
     private String name;
     private String description;
+    private WarbondDTO warbond;
 
-    public BoosterDTO(UUID uuid, String name, String description) {
+    public BoosterDTO(UUID uuid, String name, String description, WarbondDTO warbond) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
+        this.warbond = warbond;
     }
 
     public BoosterDTO() {
@@ -38,5 +40,13 @@ public class BoosterDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public WarbondDTO getWarbond() {
+        return warbond;
+    }
+
+    public void setWarbond(WarbondDTO warbond) {
+        this.warbond = warbond;
     }
 }

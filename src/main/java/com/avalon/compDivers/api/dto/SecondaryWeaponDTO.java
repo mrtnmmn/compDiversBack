@@ -6,11 +6,13 @@ public class SecondaryWeaponDTO {
     private UUID uuid;
     private String name;
     private String category;
+    private WarbondDTO warbond;
 
-    public SecondaryWeaponDTO(UUID uuid, String name, String category) {
+    public SecondaryWeaponDTO(UUID uuid, String name, String category, WarbondDTO warbond) {
         this.uuid = uuid;
         this.name = name;
         this.category = category;
+        this.warbond = warbond;
     }
 
     public SecondaryWeaponDTO() {
@@ -38,5 +40,13 @@ public class SecondaryWeaponDTO {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public WarbondDTO getWarbond() {
+        return warbond;
+    }
+
+    public void setWarbond(WarbondDTO warbond) {
+        this.warbond = warbond;
     }
 }

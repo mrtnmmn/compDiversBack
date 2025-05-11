@@ -21,6 +21,10 @@ public class Stratagem {
     @Column(nullable = false)
     private String category;
 
+    @ManyToOne
+    @JoinColumn(name = "warbond_id")
+    private Warbond warbond;
+
     public Stratagem(Long id, UUID uuid, String name, String category) {
         this.id = id;
         this.uuid = uuid;
@@ -61,5 +65,13 @@ public class Stratagem {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Warbond getWarbond() {
+        return warbond;
+    }
+
+    public void setWarbond(Warbond warbond) {
+        this.warbond = warbond;
     }
 }
