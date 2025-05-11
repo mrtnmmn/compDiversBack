@@ -1,0 +1,18 @@
+[
+  {"name":"advanced filtration", "category":"Provides 80% resistance to gas damage and effects."},
+  {"name":"democracy protects", "category":"50% chance to not die when taking lethal damage. Prevents all damage from bleeding if chest hemorrhages."},
+  {"name":"electrical conduit", "category":"Provides 95% resistance to arc damage."},
+  {"name":"engineering kit", "category":"Further reduces recoil when crouching or prone by 30%. Increases initial inventory and holding capacity of grenades by +2."},
+  {"name":"extra padding", "category":"Provides a higher armor rating."},
+  {"name":"fortified", "category":"Further reduces recoil when crouching or prone by 30%. Provides 50% resistance to explosive damage."},
+  {"name":"inflammable", "category":"Provides 75% resistance to fire, allowing bearer to rest assured in their inflammability."},
+  {"name":"med-kit", "category":"Increases initial inventory and holding capacity of stims by +2. Increases stim effect duration by 2.0s."},
+  {"name":"peak physique", "category":"Increases melee damage by 100%. Improves weapons handling with less drag on weapon movement. Peak Physique increases melee damage done by 100%."},
+  {"name":"scout", "category":"Markers placed on the map will generate radar scans every 2.0s. Reduces range at which enemies can detect the wearer by 30%."},
+  {"name":"servo-Assisted", "category":"Increases throwing range by 30%. Provides +50% limb health."},
+  {"name":"unflinching", "category":"Helps Prevent Helldivers from flinching when hit."},
+  {"name":"siege-Ready", "category":"Increases reload speed of primary weapons by 30%. Increases ammo capacity of primary weapons by 20%."},
+  {"name":"acclimated", "category":"Grants a 50% resistance to fire, gas, acid and arc damage."},
+  {"name":"integrated explosives", "category":"Armor explodes 1.5s after wearer dies."},
+  {"name":"gunslinger", "category":"Increases sidearms reload speed by 40%. Sidearm draw/holster speed increased by 50%. Sidearm recoil reduced by 70%."}
+]
