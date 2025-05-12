@@ -27,9 +27,7 @@ public class Stratagem {
 
     @PrePersist
     public void ensureUuid() {
-        if (this.uuid == null) {
-            this.uuid = UUID.randomUUID();
-        }
+        this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
     }
 
     public Stratagem(String name, String category, Warbond warbond) {

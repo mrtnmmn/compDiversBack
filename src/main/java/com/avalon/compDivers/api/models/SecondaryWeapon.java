@@ -30,9 +30,7 @@ public class SecondaryWeapon {
 
     @PrePersist
     public void ensureUuid() {
-        if (this.uuid == null) {
-            this.uuid = UUID.randomUUID();
-        }
+        this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
     }
 
     public SecondaryWeapon(String name, String category, String penetration, Warbond warbond) {
