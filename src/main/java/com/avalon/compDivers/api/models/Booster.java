@@ -25,9 +25,14 @@ public class Booster {
     @JoinColumn(name = "warbond_id")
     private Warbond warbond;
 
-    public Booster(Long id, UUID uuid, String name, String description, Warbond warbond) {
-        this.id = id;
-        this.uuid = uuid;
+    @PrePersist
+    public void ensureUuid() {
+        if (this.uuid == null) {
+            this.uuid = UUID.randomUUID();
+        }
+    }
+
+    public Booster(String name, String description, Warbond warbond) {
         this.name = name;
         this.description = description;
         this.warbond = warbond;

@@ -1,9 +1,8 @@
 package com.avalon.compDivers.loaders;
 
-import com.avalon.compDivers.api.models.SecondaryWeapon;
-import com.avalon.compDivers.api.models.Stratagem;
+import com.avalon.compDivers.api.models.Booster;
 import com.avalon.compDivers.api.models.Warbond;
-import com.avalon.compDivers.api.repositories.StratagemRepository;
+import com.avalon.compDivers.api.repositories.BoosterRepository;
 import com.avalon.compDivers.api.repositories.WarbondRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,10 +14,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StratagemLoader {
+public class BoostersLoader {
 
     @Autowired
-    private StratagemRepository repository;
+    private BoosterRepository repository;
 
     @Autowired
     private WarbondRepository warbondRepository;
@@ -26,23 +25,23 @@ public class StratagemLoader {
     public void loadData() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            InputStream inputStream = getClass().getResourceAsStream("/data/stratagems.json");
-            List<Stratagem> stratagems = mapper.readValue(inputStream, new TypeReference<List<Stratagem>>() {});
+            InputStream inputStream = getClass().getResourceAsStream("/data/boosters.json");
+            List<Booster> boosters = mapper.readValue(inputStream, new TypeReference<List<Booster>>() {});
 
 
-            for (Stratagem stratagem : stratagems) {
-                Warbond inputWarbond = stratagem.getWarbond();
+            for (Booster booster : boosters) {
+                Warbond inputWarbond = booster.getWarbond();
 
                 if (inputWarbond != null) {
                     Optional<Warbond> warbondFromDb = warbondRepository.findByName(inputWarbond.getName());
-                    stratagem.setWarbond(warbondFromDb.orElse(null));
+                    booster.setWarbond(warbondFromDb.orElse(null));
                 }
 
-                repository.findByName(stratagem.getName().trim())
-                        .orElseGet(() -> repository.save(stratagem));
+                repository.findByName(booster.getName().trim())
+                        .orElseGet(() -> repository.save(booster));
             }
 
-            System.out.println("✅ Stratagems loaded into database.");
+            System.out.println("✅ Boosters loaded into database.");
         } catch (Exception e) {
             e.printStackTrace();
         }

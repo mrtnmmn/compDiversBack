@@ -1,0 +1,17 @@
+[
+  {"name":"hellpod space optimization","description":"Helldivers come out of the Hellpod fully atocked on ammo, grenades and stims.","warbond":"helldivers mobilize"},
+  {"name":"vitality enhancement","description":"Provides minor damage reduction from all sources for all Helldivers","warbond":"helldivers mobilize"},
+  {"name":"UAV recon booster","description":"Increases all Helldivers' effective radar range.","warbond":"helldivers mobilize"},
+  {"name":"stamina enhancement","description":"Increases all Helldivers' stamina capacity and recovery.","warbond":"helldivers mobilize"},
+  {"name":"muscle enhancement","description":"Allows Helldivers to traverse difficult terrain with ease.","warbond":"helldivers mobilize"},
+  {"name":"increased reinforcement budget","description":"Increases the number of available reinforcements.","warbond":"helldivers mobilize"},
+  {"name":"flexible reinforcement budget","description":"Reduces time until new reinforcements are granted once they've been depleted.","warbond":"steeled veterans"},
+  {"name":"localized confusion","description":"Increases the time between enemy encounters.","warbond":"cutting edge"},
+  {"name":"sample extricator","description":"Large enemies now have a chance of dropping samples on death. Capped at 10 drops per mission.","warbond":"borderline justice"},
+  {"name":"expert extraction pilot","description":"Lowers the time it takes for the extraction shuttle to reach the extraction beacon.","warbond":"servants of freedom"},
+  {"name":"dead sprint","description":"Allows Helldivers to keep sprinting even when they are out of stamina, draining their health instead.","warbond":"truth enforcers"},
+  {"name":"firebomb hellpods","description":"Lines all Hellpods with volatile incendiaries that detonate upon impact, igniting any units in vicinity of the drop site.","warbond":"fredom's flame"},
+  {"name":"experimental infusion","description":"In addition to restoring health, stims temporarily increase movement speed and damage reduction.","warbond":"viper commandos"},
+  {"name":"motivational shocks","description":"Allows all Helldivers to recover faster after being slowed by an attack, such as acid. Does not mitigate “area effects,” such as EMS strikes.","warbond":"polar patriots"},
+  {"name":"armed resupply pods","description":"Mounts a modified AR-23 Liberator to all resupply pods, allowing them to double as automatic turrets.","warbond":"urban legends"}
+]
