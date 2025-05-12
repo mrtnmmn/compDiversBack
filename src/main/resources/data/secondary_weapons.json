@@ -1,0 +1,17 @@
+[
+  {"name":"cqc-19 stun lance", "category":"melee", "penetration":"medium", "warbond":"servants of freedom"},
+  {"name":"cqc-30 stun baton", "category":"melee", "penetration":"medium", "warbond":"superstore"},
+  {"name":"cqc-5 combar hatchet", "category":"melee", "penetration":"medium", "warbond":"superstore"},
+  {"name":"p-113 verdict", "category":"pistol", "penetration":"medium", "warbond":"polar patriots"},
+  {"name":"p-19 redeemer", "category":"pistol", "penetration":"light", "warbond":"helldivers mobilize"},
+  {"name":"p-2 peacemaker", "category":"pistol", "penetration":"light", "warbond":"default"},
+  {"name":"p-4 senator", "category":"pistol", "penetration":"heavy", "warbond":"steeled veterans"},
+  {"name":"gp-31 ultimatum", "category":"special", "penetration":"anti-tank", "warbond":"servants of freedom"},
+  {"name":"gp-32 grenade pistor", "category":"special", "penetration":"medium", "warbond":"democratic detonation"},
+  {"name":"las-58 talon", "category":"special", "penetration":"medium", "warbond":"borderline justice"},
+  {"name":"las-7 dagger", "category":"special", "penetration":"light", "warbond":"cutting edge"},
+  {"name":"p-11 stim pistol", "category":"special", "penetration":"-", "warbond":"chemical agents"},
+  {"name":"p-72 crisper", "category":"special", "penetration":"heavy", "warbond":"freedom's flame"},
+  {"name":"plas-15 loyalist", "category":"special", "penetration":"medium", "warbond":"truth enforcers"},
+  {"name":"sg-22 bushwhacker", "category":"special", "penetration":"light", "warbond":"viper commandos"}
+]

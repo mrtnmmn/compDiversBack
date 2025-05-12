@@ -18,6 +18,7 @@ public class SecondaryWeaponMapper {
         dto.setUuid(weapon.getUuid());
         dto.setName(weapon.getName());
         dto.setCategory(weapon.getCategory());
+        dto.setPenetration(weapon.getPenetration());
         dto.setWarbond(weapon.getWarbond() != null ? warbondMapper.toDto(weapon.getWarbond()) : null);
         return dto;
     }
