@@ -11,31 +11,27 @@ public class Armor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false, unique = true)
     private UUID uuid;
-
-    @Column(nullable = false)
-    private String name;
-
     @Column(nullable = false)
     private String category;
+    @Column(nullable = false)
+    private int armor;
+    @Column(nullable = false)
+    private int speed;
+    @Column(nullable = false)
+    private int stamina;
 
-    @ManyToOne
-    @JoinColumn(name = "armor_passive_id", foreignKey = @ForeignKey(name = "fk_armor_passive"))
-    private ArmorPassive armorPassive;
+    @PrePersist
+    public void ensureUuid() {
+        this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
+    }
 
-    @OneToOne(mappedBy = "armor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private ArmorStats armorStats;
-
-
-    public Armor(Long id, UUID uuid, String name, String category, ArmorPassive armorPassive, ArmorStats armorStats) {
-        this.id = id;
-        this.uuid = uuid;
-        this.name = name;
+    public Armor(String category, int armor, int speed, int stamina) {
         this.category = category;
-        this.armorPassive = armorPassive;
-        this.armorStats = armorStats;
+        this.armor = armor;
+        this.speed = speed;
+        this.stamina = stamina;
     }
 
     public Armor() {
@@ -57,14 +53,6 @@ public class Armor {
         this.uuid = uuid;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCategory() {
         return category;
     }
@@ -73,19 +61,27 @@ public class Armor {
         this.category = category;
     }
 
-    public ArmorPassive getArmorPassive() {
-        return armorPassive;
+    public int getArmor() {
+        return armor;
     }
 
-    public void setArmorPassive(ArmorPassive armorPassive) {
-        this.armorPassive = armorPassive;
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
-    public ArmorStats getArmorStats() {
-        return armorStats;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setArmorStats(ArmorStats armorStats) {
-        this.armorStats = armorStats;
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 }

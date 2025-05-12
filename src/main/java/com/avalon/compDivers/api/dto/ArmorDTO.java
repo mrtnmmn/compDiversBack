@@ -4,17 +4,17 @@ import java.util.UUID;
 
 public class ArmorDTO {
     private UUID uuid;
-    private String name;
     private String category;
-    private ArmorPassiveDTO armorPassive;
-    private ArmorStatsDTO armorStats;
+    private int armor;
+    private int speed;
+    private int stamina;
 
-    public ArmorDTO(UUID uuid, String name, String category, ArmorPassiveDTO armorPassive, ArmorStatsDTO armorStats) {
+    public ArmorDTO(UUID uuid, String category, int armor, int speed, int stamina) {
         this.uuid = uuid;
-        this.name = name;
         this.category = category;
-        this.armorPassive = armorPassive;
-        this.armorStats = armorStats;
+        this.armor = armor;
+        this.speed = speed;
+        this.stamina = stamina;
     }
 
     public ArmorDTO() {
@@ -28,14 +28,6 @@ public class ArmorDTO {
         this.uuid = uuid;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCategory() {
         return category;
     }
@@ -44,19 +36,27 @@ public class ArmorDTO {
         this.category = category;
     }
 
-    public ArmorPassiveDTO getArmorPassive() {
-        return armorPassive;
+    public int getArmor() {
+        return armor;
     }
 
-    public void setArmorPassive(ArmorPassiveDTO armorPassive) {
-        this.armorPassive = armorPassive;
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
-    public ArmorStatsDTO getArmorStats() {
-        return armorStats;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setArmorStats(ArmorStatsDTO armorStats) {
-        this.armorStats = armorStats;
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 }

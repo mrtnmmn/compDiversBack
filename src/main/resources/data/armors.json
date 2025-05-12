@@ -1,0 +1,5 @@
+[
+  {"category":"heavy", "armor": 150, "speed": 450, "stamina": 50},
+  {"category":"medium", "armor": 100, "speed": 500, "stamina": 100},
+  {"category":"light", "armor": 50, "speed": 550, "stamina": 125}
+]

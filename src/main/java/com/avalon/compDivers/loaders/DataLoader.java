@@ -9,6 +9,9 @@ import jakarta.annotation.PostConstruct;
 public class DataLoader {
 
     @Autowired
+    private ArmorsLoader armorsLoader;
+
+    @Autowired
     private ArmorPassiveLoader armorPassiveLoader;
 
     @Autowired
@@ -35,6 +38,7 @@ public class DataLoader {
     @PostConstruct
     public void loadAllData() {
         factionsLoader.loadData();
+        armorsLoader.loadData();
         armorPassiveLoader.loadData();
         warbondLoader.loadData();
         primaryWeaponsLoader.loadData();
