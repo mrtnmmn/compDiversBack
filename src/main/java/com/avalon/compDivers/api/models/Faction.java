@@ -1,0 +1,56 @@
+package com.avalon.compDivers.api.models;
+
+import jakarta.persistence.*;
+
+import java.util.UUID;
+
+@Entity
+@Table(name = "factions")
+public class Faction {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private UUID uuid;
+
+    @Column(nullable = false, unique = true)
+    private String name;
+
+    @PrePersist
+    public void ensureUuid() {
+        this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
+    }
+
+    public Faction(String name) {
+        this.name = name;
+    }
+
+    public Faction() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}

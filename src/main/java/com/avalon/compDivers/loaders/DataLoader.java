@@ -15,6 +15,9 @@ public class DataLoader {
     private BoostersLoader boostersLoader;
 
     @Autowired
+    private FactionsLoader factionsLoader;
+
+    @Autowired
     private PrimaryWeaponsLoader primaryWeaponsLoader;
 
     @Autowired
@@ -28,6 +31,7 @@ public class DataLoader {
 
     @PostConstruct
     public void loadAllData() {
+        factionsLoader.loadData();
         armorPassiveLoader.loadData();
         warbondLoader.loadData();
         primaryWeaponsLoader.loadData();
