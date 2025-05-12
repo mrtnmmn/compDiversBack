@@ -25,11 +25,17 @@ public class Stratagem {
     @JoinColumn(name = "warbond_id")
     private Warbond warbond;
 
-    public Stratagem(Long id, UUID uuid, String name, String category) {
-        this.id = id;
-        this.uuid = uuid;
+    @PrePersist
+    public void ensureUuid() {
+        if (this.uuid == null) {
+            this.uuid = UUID.randomUUID();
+        }
+    }
+
+    public Stratagem(String name, String category, Warbond warbond) {
         this.name = name;
         this.category = category;
+        this.warbond = warbond;
     }
 
     public Stratagem() {

@@ -36,7 +36,6 @@ public class SecondaryWeapon {
     }
 
     public SecondaryWeapon(String name, String category, String penetration, Warbond warbond) {
-        this.uuid = UUID.randomUUID();
         this.name = name;
         this.category = category;
         this.penetration = penetration;
