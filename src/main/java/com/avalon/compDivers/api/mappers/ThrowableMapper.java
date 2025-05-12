@@ -17,6 +17,7 @@ public class ThrowableMapper {
         dto.setUuid(throwable.getUuid());
         dto.setName(throwable.getName());
         dto.setCategory(throwable.getCategory());
+        dto.setPenetration(throwable.getPenetration());
         dto.setWarbond(throwable.getWarbond() != null ? warbondMapper.toDto(throwable.getWarbond()) : null);
         return dto;
     }

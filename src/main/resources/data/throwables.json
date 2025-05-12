@@ -1,0 +1,14 @@
+[
+  {"name":"g-3 smoke","category":"special","penetration":"-","warbond":"helldivers mobilize"},
+  {"name":"g-23 stun","category":"special","penetration":"anti-tank","warbond":"cutting edge"},
+  {"name":"g-4 gas","category":"special","penetration":"anti-tank","warbond":"chemical agents"},
+  {"name":"g-123 thermite","category":"special","penetration":"anti-tank","warbond":"democatic detonation"},
+  {"name":"g-16 impact","category":"special","penetration":"heavy","warbond":"helldivers mobilize"},
+  {"name":"g-50 seeker","category":"special","penetration":"heavy","warbond":"servants of freedom"},
+  {"name":"g-13 incendiary impact sp","category":"special","penetration":"medium","warbond":"polar patriots"},
+  {"name":"k2 throwing knife","category":"special","penetration":"medium","warbond":"viper commandos"},
+  {"name":"g-12 high explosive","category":"standard","penetration":"heavy","warbond":"default"},
+  {"name":"g-10 incendiary","category":"standard","penetration":"medium","warbond":"steeled veterans"},
+  {"name":"g-6 frag","category":"standard","penetration":"medium","warbond":"helldivers mobilize"},
+  {"name":"ted-63 dynamite","category":"standard","penetration":"medium","warbond":"borderline justice"}
+]

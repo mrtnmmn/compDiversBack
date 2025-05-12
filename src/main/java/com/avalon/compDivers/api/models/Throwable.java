@@ -22,13 +22,20 @@ public class Throwable {
     @Column(nullable = false)
     private String category;
 
+    // TODO: add  penetration to the migrations
+    @Column(nullable = false)
+    private String penetration;
+
     @ManyToOne
     @JoinColumn(name = "warbond_id")
     private Warbond warbond;
 
-    public Throwable(Long id, UUID uuid, String name, String category, Warbond warbond) {
-        this.id = id;
-        this.uuid = uuid;
+    @PrePersist
+    public void ensureUuid() {
+        this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
+    }
+
+    public Throwable(String name, String category, Warbond warbond) {
         this.name = name;
         this.category = category;
         this.warbond = warbond;
@@ -67,6 +74,14 @@ public class Throwable {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getPenetration() {
+        return penetration;
+    }
+
+    public void setPenetration(String penetration) {
+        this.penetration = penetration;
     }
 
     public Warbond getWarbond() {

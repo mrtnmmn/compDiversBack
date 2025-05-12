@@ -27,6 +27,9 @@ public class DataLoader {
     private StratagemsLoader stratagemsLoader;
 
     @Autowired
+    private ThrowablesLoader throwablesLoader;
+
+    @Autowired
     private WarbondsLoader warbondLoader;
 
     @PostConstruct
@@ -36,6 +39,7 @@ public class DataLoader {
         warbondLoader.loadData();
         primaryWeaponsLoader.loadData();
         secondaryWeaponsLoader.loadData();
+        throwablesLoader.loadData();
         stratagemsLoader.loadData();
         boostersLoader.loadData();
         System.out.println("✅ All data loaded.");

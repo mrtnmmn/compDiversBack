@@ -6,12 +6,14 @@ public class ThrowableDTO {
     private UUID uuid;
     private String name;
     private String category;
+    private String penetration;
     private WarbondDTO warbond;
 
-    public ThrowableDTO(UUID uuid, String name, String category, WarbondDTO warbond) {
+    public ThrowableDTO(UUID uuid, String name, String category, String penetration, WarbondDTO warbond) {
         this.uuid = uuid;
         this.name = name;
         this.category = category;
+        this.penetration = penetration;
         this.warbond = warbond;
     }
 
@@ -40,6 +42,14 @@ public class ThrowableDTO {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getPenetration() {
+        return penetration;
+    }
+
+    public void setPenetration(String penetration) {
+        this.penetration = penetration;
     }
 
     public WarbondDTO getWarbond() {
