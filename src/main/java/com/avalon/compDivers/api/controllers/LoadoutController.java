@@ -1,6 +1,7 @@
 package com.avalon.compDivers.api.controllers;
 
 import com.avalon.compDivers.api.dto.LoadoutDTO;
+import com.avalon.compDivers.api.dto.LoadoutInputDTO;
 import com.avalon.compDivers.api.models.Loadout;
 import com.avalon.compDivers.api.services.LoadoutService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class LoadoutController {
     }
 
     @PostMapping
-    public Loadout createLoadout(@RequestBody Loadout loadout, HttpServletRequest request) {
+    public Loadout createLoadout(@RequestBody LoadoutInputDTO loadout, HttpServletRequest request) {
         return loadoutService.createLoadout(loadout, request);
     }
 }

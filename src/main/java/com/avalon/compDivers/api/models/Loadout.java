@@ -2,6 +2,7 @@ package com.avalon.compDivers.api.models;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -22,8 +23,49 @@ public class Loadout {
     private String description;
 
     @ManyToOne(optional = false)
+    @JoinColumn(name = "primary_weapon_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_primary_weapon"))
+    private PrimaryWeapon primaryWeapon;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "secondary_weapon_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_secondary_weapon"))
+    private SecondaryWeapon secondaryWeapon;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "armor_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_armor"))
+    private Armor armor;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "armor_passive_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_armor_passive"))
+    private ArmorPassive armorPassive;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "throwable_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_throwable"))
+    private com.avalon.compDivers.api.models.Throwable throwable;
+
+    @ManyToMany
+    @JoinTable(
+            name = "loadout_stratagems",
+            joinColumns = @JoinColumn(name = "loadout_id"),
+            inverseJoinColumns = @JoinColumn(name = "stratagem_id")
+    )
+    private Set<Stratagem> stratagems;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "booster_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_booster"))
+    private Booster booster;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "faction_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_faction"))
+    private Faction faction;
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_user"))
     private User user;
+
+    @PrePersist
+    public void ensureUuid() {
+        this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
+    }
 
     public Loadout(Long id, UUID uuid, String name, String description, User user) {
         this.id = id;
@@ -66,6 +108,70 @@ public class Loadout {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public PrimaryWeapon getPrimaryWeapon() {
+        return primaryWeapon;
+    }
+
+    public void setPrimaryWeapon(PrimaryWeapon primaryWeapon) {
+        this.primaryWeapon = primaryWeapon;
+    }
+
+    public SecondaryWeapon getSecondaryWeapon() {
+        return secondaryWeapon;
+    }
+
+    public void setSecondaryWeapon(SecondaryWeapon secondaryWeapon) {
+        this.secondaryWeapon = secondaryWeapon;
+    }
+
+    public Armor getArmor() {
+        return armor;
+    }
+
+    public void setArmor(Armor armor) {
+        this.armor = armor;
+    }
+
+    public ArmorPassive getArmorPassive() {
+        return armorPassive;
+    }
+
+    public void setArmorPassive(ArmorPassive armorPassive) {
+        this.armorPassive = armorPassive;
+    }
+
+    public com.avalon.compDivers.api.models.Throwable getThrowable() {
+        return throwable;
+    }
+
+    public void setThrowable(com.avalon.compDivers.api.models.Throwable throwable) {
+        this.throwable = throwable;
+    }
+
+    public Set<Stratagem> getStratagems() {
+        return stratagems;
+    }
+
+    public void setStratagems(Set<Stratagem> stratagems) {
+        this.stratagems = stratagems;
+    }
+
+    public Booster getBooster() {
+        return booster;
+    }
+
+    public void setBooster(Booster booster) {
+        this.booster = booster;
+    }
+
+    public Faction getFaction() {
+        return faction;
+    }
+
+    public void setFaction(Faction faction) {
+        this.faction = faction;
     }
 
     public User getUser() {

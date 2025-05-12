@@ -1,6 +1,7 @@
 package com.avalon.compDivers.api.services;
 
 import com.avalon.compDivers.api.dto.LoadoutDTO;
+import com.avalon.compDivers.api.dto.LoadoutInputDTO;
 import com.avalon.compDivers.api.mappers.LoadoutMapper;
 import com.avalon.compDivers.api.models.User;
 import com.avalon.compDivers.api.repositories.UserRepository;
@@ -25,17 +26,18 @@ public class LoadoutService {
     private UserRepository userRepository;
 
     @Autowired
+    private LoadoutMapper loadoutMapper;
+
+    @Autowired
     private JwtUtil jwtUtil;
 
-    public Loadout createLoadout(Loadout loadout, HttpServletRequest request) {
+    public Loadout createLoadout(LoadoutInputDTO loadout, HttpServletRequest request) {
         String username = extractUsernameFromToken(request);
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-
-        loadout.setUuid(UUID.randomUUID());
-        loadout.setUser(user);
-
-        return loadoutRepository.save(loadout);
+        Loadout saveLoadout = loadoutMapper.toEntity(loadout);
+        saveLoadout.setUser(user);
+        return loadoutRepository.save(saveLoadout);
     }
 
     public List<LoadoutDTO> getLoadoutsForUser(HttpServletRequest request) {
@@ -46,7 +48,7 @@ public class LoadoutService {
         List<Loadout> loadouts = loadoutRepository.findByUser(user);
 
         return loadouts.stream()
-                .map(LoadoutMapper::toLoadoutDto)
+                .map(loadout -> loadoutMapper.toLoadoutDto(loadout))
                 .collect(Collectors.toList());
     }
 

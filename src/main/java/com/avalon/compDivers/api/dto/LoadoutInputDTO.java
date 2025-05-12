@@ -1,5 +1,7 @@
 package com.avalon.compDivers.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -7,17 +9,27 @@ public class LoadoutInputDTO {
 
     private String name;
     private String description;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID primaryWeaponUUID;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID secondaryWeaponUUID;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID armorUUID;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID armorPassiveUUID;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID throwableUUID;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private List<UUID> stratagemsUUIDs;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID boosterUUID;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private UUID factionUUID;
 
     public LoadoutInputDTO(String name, String description, UUID primaryWeaponUUID,
                            UUID secondaryWeaponUUID, UUID armorUUID, UUID armorPassiveUUID,
-                           UUID throwableUUID, List<UUID> stratagemsUUIDs, UUID boosterUUID) {
+                           UUID throwableUUID, List<UUID> stratagemsUUIDs, UUID boosterUUID,
+                           UUID factionUUID) {
         this.name = name;
         this.description = description;
         this.primaryWeaponUUID = primaryWeaponUUID;
@@ -27,6 +39,7 @@ public class LoadoutInputDTO {
         this.throwableUUID = throwableUUID;
         this.stratagemsUUIDs = stratagemsUUIDs;
         this.boosterUUID = boosterUUID;
+        this.factionUUID = factionUUID;
     }
 
     public LoadoutInputDTO() {
@@ -102,5 +115,13 @@ public class LoadoutInputDTO {
 
     public void setBoosterUUID(UUID boosterUUID) {
         this.boosterUUID = boosterUUID;
+    }
+
+    public UUID getFactionUUID() {
+        return factionUUID;
+    }
+
+    public void setFactionUUID(UUID factionUUID) {
+        this.factionUUID = factionUUID;
     }
 }
