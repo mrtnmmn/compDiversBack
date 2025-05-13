@@ -75,19 +75,19 @@ public class LoadoutMapper {
         loadout.setName(dto.getName());
         loadout.setDescription(dto.getDescription());
 
-        PrimaryWeapon primaryWeapon = primaryWeaponRepository.findByUuid(dto.getPrimaryWeaponUUID())
+        PrimaryWeapon primaryWeapon = primaryWeaponRepository.findByUuid(dto.getPrimaryWeapon())
                 .orElseThrow(() -> new EntityNotFoundException("PrimaryWeapon not found"));
-        SecondaryWeapon secondaryWeapon = secondaryWeaponRepository.findByUuid(dto.getSecondaryWeaponUUID())
+        SecondaryWeapon secondaryWeapon = secondaryWeaponRepository.findByUuid(dto.getSecondaryWeapon())
                 .orElseThrow(() -> new EntityNotFoundException("SecondaryWeapon not found"));
-        Armor armor = armorRepository.findByUuid(dto.getArmorUUID())
+        Armor armor = armorRepository.findByUuid(dto.getArmor())
                 .orElseThrow(() -> new EntityNotFoundException("Armor not found"));
-        ArmorPassive armorPassive = armorPassiveRepository.findByUuid(dto.getArmorPassiveUUID())
+        ArmorPassive armorPassive = armorPassiveRepository.findByUuid(dto.getArmorPassive())
                 .orElseThrow(() -> new EntityNotFoundException("ArmorPassive not found"));
-        com.avalon.compDivers.api.models.Throwable throwable = throwableRepository.findByUuid(dto.getThrowableUUID())
+        com.avalon.compDivers.api.models.Throwable throwable = throwableRepository.findByUuid(dto.getThrowable())
                 .orElseThrow(() -> new EntityNotFoundException("Throwable not found"));
-        Booster booster = boosterRepository.findByUuid(dto.getBoosterUUID())
+        Booster booster = boosterRepository.findByUuid(dto.getBooster())
                 .orElseThrow(() -> new EntityNotFoundException("Booster not found"));
-        Faction faction = factionRepository.findByUuid(dto.getFactionUUID())
+        Faction faction = factionRepository.findByUuid(dto.getFaction())
                 .orElseThrow(() -> new EntityNotFoundException("Faction not found"));
 
         loadout.setPrimaryWeapon(primaryWeapon);
@@ -99,7 +99,7 @@ public class LoadoutMapper {
         loadout.setFaction(faction);
 
         Set<Stratagem> stratagems = new HashSet<>();
-        for (UUID stratagemUUID : dto.getStratagemsUUIDs()) {
+        for (UUID stratagemUUID : dto.getStratagems()) {
             Stratagem stratagem = stratagemRepository.findByUuid(stratagemUUID)
                     .orElseThrow(() -> new EntityNotFoundException("Stratagem not found"));
             stratagems.add(stratagem);

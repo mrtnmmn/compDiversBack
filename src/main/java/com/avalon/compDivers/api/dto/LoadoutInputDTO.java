@@ -10,36 +10,36 @@ public class LoadoutInputDTO {
     private String name;
     private String description;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID primaryWeaponUUID;
+    private UUID primaryWeapon;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID secondaryWeaponUUID;
+    private UUID secondaryWeapon;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID armorUUID;
+    private UUID armor;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID armorPassiveUUID;
+    private UUID armorPassive;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID throwableUUID;
+    private UUID throwable;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private List<UUID> stratagemsUUIDs;
+    private List<UUID> stratagems;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID boosterUUID;
+    private UUID booster;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID factionUUID;
+    private UUID faction;
 
-    public LoadoutInputDTO(String name, String description, UUID primaryWeaponUUID,
-                           UUID secondaryWeaponUUID, UUID armorUUID, UUID armorPassiveUUID,
-                           UUID throwableUUID, List<UUID> stratagemsUUIDs, UUID boosterUUID,
-                           UUID factionUUID) {
+    public LoadoutInputDTO(String name, String description, UUID primaryWeapon,
+                           UUID secondaryWeapon, UUID armor, UUID armorPassive,
+                           UUID throwable, List<UUID> stratagems, UUID booster,
+                           UUID faction) {
         this.name = name;
         this.description = description;
-        this.primaryWeaponUUID = primaryWeaponUUID;
-        this.secondaryWeaponUUID = secondaryWeaponUUID;
-        this.armorUUID = armorUUID;
-        this.armorPassiveUUID = armorPassiveUUID;
-        this.throwableUUID = throwableUUID;
-        this.stratagemsUUIDs = stratagemsUUIDs;
-        this.boosterUUID = boosterUUID;
-        this.factionUUID = factionUUID;
+        this.primaryWeapon = primaryWeapon;
+        this.secondaryWeapon = secondaryWeapon;
+        this.armor = armor;
+        this.armorPassive = armorPassive;
+        this.throwable = throwable;
+        this.stratagems = stratagems;
+        this.booster = booster;
+        this.faction = faction;
     }
 
     public LoadoutInputDTO() {
@@ -61,67 +61,67 @@ public class LoadoutInputDTO {
         this.description = description;
     }
 
-    public UUID getPrimaryWeaponUUID() {
-        return primaryWeaponUUID;
+    public UUID getPrimaryWeapon() {
+        return primaryWeapon;
     }
 
-    public void setPrimaryWeaponUUID(UUID primaryWeaponUUID) {
-        this.primaryWeaponUUID = primaryWeaponUUID;
+    public void setPrimaryWeapon(UUID primaryWeapon) {
+        this.primaryWeapon = primaryWeapon;
     }
 
-    public UUID getSecondaryWeaponUUID() {
-        return secondaryWeaponUUID;
+    public UUID getSecondaryWeapon() {
+        return secondaryWeapon;
     }
 
-    public void setSecondaryWeaponUUID(UUID secondaryWeaponUUID) {
-        this.secondaryWeaponUUID = secondaryWeaponUUID;
+    public void setSecondaryWeapon(UUID secondaryWeapon) {
+        this.secondaryWeapon = secondaryWeapon;
     }
 
-    public UUID getArmorUUID() {
-        return armorUUID;
+    public UUID getArmor() {
+        return armor;
     }
 
-    public void setArmorUUID(UUID armorUUID) {
-        this.armorUUID = armorUUID;
+    public void setArmor(UUID armor) {
+        this.armor = armor;
     }
 
-    public UUID getArmorPassiveUUID() {
-        return armorPassiveUUID;
+    public UUID getArmorPassive() {
+        return armorPassive;
     }
 
-    public void setArmorPassiveUUID(UUID armorPassiveUUID) {
-        this.armorPassiveUUID = armorPassiveUUID;
+    public void setArmorPassive(UUID armorPassive) {
+        this.armorPassive = armorPassive;
     }
 
-    public UUID getThrowableUUID() {
-        return throwableUUID;
+    public UUID getThrowable() {
+        return throwable;
     }
 
-    public void setThrowableUUID(UUID throwableUUID) {
-        this.throwableUUID = throwableUUID;
+    public void setThrowable(UUID throwable) {
+        this.throwable = throwable;
     }
 
-    public List<UUID> getStratagemsUUIDs() {
-        return stratagemsUUIDs;
+    public List<UUID> getStratagems() {
+        return stratagems;
     }
 
-    public void setStratagemsUUIDs(List<UUID> stratagemsUUIDs) {
-        this.stratagemsUUIDs = stratagemsUUIDs;
+    public void setStratagems(List<UUID> stratagems) {
+        this.stratagems = stratagems;
     }
 
-    public UUID getBoosterUUID() {
-        return boosterUUID;
+    public UUID getBooster() {
+        return booster;
     }
 
-    public void setBoosterUUID(UUID boosterUUID) {
-        this.boosterUUID = boosterUUID;
+    public void setBooster(UUID booster) {
+        this.booster = booster;
     }
 
-    public UUID getFactionUUID() {
-        return factionUUID;
+    public UUID getFaction() {
+        return faction;
     }
 
-    public void setFactionUUID(UUID factionUUID) {
-        this.factionUUID = factionUUID;
+    public void setFaction(UUID faction) {
+        this.faction = faction;
     }
 }
