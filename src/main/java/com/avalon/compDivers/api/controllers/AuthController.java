@@ -32,7 +32,6 @@ public class AuthController {
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
         User user = userService.login(request.username, request.password);
         String token = jwtUtil.generateToken(user.getUsername());
-        System.out.println("Login " + token);
         return ResponseEntity.ok(new AuthResponse(token));
     }
 }

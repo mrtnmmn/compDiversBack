@@ -64,6 +64,7 @@ public class LoadoutMapper {
                 armorPassiveMapper.toDto(loadout.getArmorPassive()),
                 stratagemMapper.toDtoSet(loadout.getStratagems()),
                 boosterMapper.toDto(loadout.getBooster()),
+                factionMapper.toDto(loadout.getFaction()),
                 toUserDto(loadout.getUser())
         );
     }

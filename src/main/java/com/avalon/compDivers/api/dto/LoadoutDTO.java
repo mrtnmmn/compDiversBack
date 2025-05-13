@@ -15,11 +15,13 @@ public class LoadoutDTO {
     private ArmorPassiveDTO armorPassive;
     private Set<StratagemDTO> stratagems;
     private BoosterDTO booster;
+    private FactionDTO faction;
     private UserDTO user;
 
     public LoadoutDTO(UUID uuid, String name, String description, PrimaryWeaponDTO primaryWeapon,
                       SecondaryWeaponDTO secondaryWeapon, ThrowableDTO throwableDTO, ArmorDTO armor,
-                      ArmorPassiveDTO armorPassive, Set<StratagemDTO> stratagems, BoosterDTO booster, UserDTO user) {
+                      ArmorPassiveDTO armorPassive, Set<StratagemDTO> stratagems, BoosterDTO booster,
+                      FactionDTO faction, UserDTO user) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
@@ -30,6 +32,7 @@ public class LoadoutDTO {
         this.armorPassive = armorPassive;
         this.stratagems = stratagems;
         this.booster = booster;
+        this.faction = faction;
         this.user = user;
     }
 
@@ -114,6 +117,14 @@ public class LoadoutDTO {
 
     public void setBooster(BoosterDTO booster) {
         this.booster = booster;
+    }
+
+    public FactionDTO getFaction() {
+        return faction;
+    }
+
+    public void setFaction(FactionDTO faction) {
+        this.faction = faction;
     }
 
     public UserDTO getUser() {
