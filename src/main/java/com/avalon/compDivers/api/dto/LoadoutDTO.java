@@ -10,7 +10,7 @@ public class LoadoutDTO {
     private String description;
     private PrimaryWeaponDTO primaryWeapon;
     private SecondaryWeaponDTO secondaryWeapon;
-    private ThrowableDTO throwableDTO;
+    private ThrowableDTO throwable;
     private ArmorDTO armor;
     private ArmorPassiveDTO armorPassive;
     private Set<StratagemDTO> stratagems;
@@ -19,7 +19,7 @@ public class LoadoutDTO {
     private UserDTO user;
 
     public LoadoutDTO(UUID uuid, String name, String description, PrimaryWeaponDTO primaryWeapon,
-                      SecondaryWeaponDTO secondaryWeapon, ThrowableDTO throwableDTO, ArmorDTO armor,
+                      SecondaryWeaponDTO secondaryWeapon, ThrowableDTO throwable, ArmorDTO armor,
                       ArmorPassiveDTO armorPassive, Set<StratagemDTO> stratagems, BoosterDTO booster,
                       FactionDTO faction, UserDTO user) {
         this.uuid = uuid;
@@ -27,7 +27,7 @@ public class LoadoutDTO {
         this.description = description;
         this.primaryWeapon = primaryWeapon;
         this.secondaryWeapon = secondaryWeapon;
-        this.throwableDTO = throwableDTO;
+        this.throwable = throwable;
         this.armor = armor;
         this.armorPassive = armorPassive;
         this.stratagems = stratagems;
@@ -79,12 +79,12 @@ public class LoadoutDTO {
         this.secondaryWeapon = secondaryWeapon;
     }
 
-    public ThrowableDTO getThrowableDTO() {
-        return throwableDTO;
+    public ThrowableDTO getThrowable() {
+        return throwable;
     }
 
-    public void setThrowableDTO(ThrowableDTO throwableDTO) {
-        this.throwableDTO = throwableDTO;
+    public void setThrowable(ThrowableDTO throwable) {
+        this.throwable = throwable;
     }
 
     public ArmorDTO getArmor() {
