@@ -65,7 +65,8 @@ public class LoadoutMapper {
                 stratagemMapper.toDtoSet(loadout.getStratagems()),
                 boosterMapper.toDto(loadout.getBooster()),
                 factionMapper.toDto(loadout.getFaction()),
-                toUserDto(loadout.getUser())
+                toUserDto(loadout.getUser()),
+                loadout.getCreationDate()
         );
     }
 

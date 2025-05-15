@@ -1,5 +1,7 @@
 package com.avalon.compDivers.api.dto;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,11 +19,12 @@ public class LoadoutDTO {
     private BoosterDTO booster;
     private FactionDTO faction;
     private UserDTO user;
+    private LocalDateTime creationDate;
 
     public LoadoutDTO(UUID uuid, String name, String description, PrimaryWeaponDTO primaryWeapon,
                       SecondaryWeaponDTO secondaryWeapon, ThrowableDTO throwable, ArmorDTO armor,
                       ArmorPassiveDTO armorPassive, Set<StratagemDTO> stratagems, BoosterDTO booster,
-                      FactionDTO faction, UserDTO user) {
+                      FactionDTO faction, UserDTO user, LocalDateTime creationDate) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
@@ -34,6 +37,7 @@ public class LoadoutDTO {
         this.booster = booster;
         this.faction = faction;
         this.user = user;
+        this.creationDate = creationDate;
     }
 
     public LoadoutDTO() {
@@ -133,5 +137,13 @@ public class LoadoutDTO {
 
     public void setUser(UserDTO user) {
         this.user = user;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 }

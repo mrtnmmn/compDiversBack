@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface LoadoutRepository extends JpaRepository<Loadout, Long> {
     List<Loadout> findByUser(User user);
+    List<Loadout> findByUserOrderByCreationDateDesc(User user);
 }

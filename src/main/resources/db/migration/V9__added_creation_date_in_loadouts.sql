@@ -1,0 +1,2 @@
+ALTER TABLE loadouts
+ADD COLUMN creation_date TIMESTAMP DEFAULT NOW();

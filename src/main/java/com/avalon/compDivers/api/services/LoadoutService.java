@@ -42,11 +42,10 @@ public class LoadoutService {
 
     public List<LoadoutDTO> getLoadoutsForUser(HttpServletRequest request) {
         String username = extractUsernameFromToken(request);
-        System.out.println("LOADOUTS FOR " + username);
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        List<Loadout> loadouts = loadoutRepository.findByUser(user);
+        List<Loadout> loadouts = loadoutRepository.findByUserOrderByCreationDateDesc(user);
 
         return loadouts.stream()
                 .map(loadout -> loadoutMapper.toLoadoutDto(loadout))

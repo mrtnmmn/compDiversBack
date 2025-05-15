@@ -1,7 +1,9 @@
 package com.avalon.compDivers.api.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -62,17 +64,22 @@ public class Loadout {
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_user"))
     private User user;
 
+    @Column(name = "creation_date", nullable = false, updatable = false)
+    @CreationTimestamp
+    private LocalDateTime creationDate;
+
     @PrePersist
     public void ensureUuid() {
         this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
     }
 
-    public Loadout(Long id, UUID uuid, String name, String description, User user) {
+    public Loadout(Long id, UUID uuid, String name, String description, User user, LocalDateTime creationDate) {
         this.id = id;
         this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.user = user;
+        this.creationDate = creationDate;
     }
 
     public Loadout() {
@@ -180,5 +187,13 @@ public class Loadout {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 }
