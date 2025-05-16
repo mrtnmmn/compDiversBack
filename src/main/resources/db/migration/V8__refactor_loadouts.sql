@@ -1,3 +1,9 @@
+CREATE TABLE factions (
+    id BIGSERIAL PRIMARY KEY,
+    uuid UUID NOT NULL UNIQUE,
+    name TEXT NOT NULL UNIQUE
+);
+
 ALTER TABLE loadouts
     ADD COLUMN primary_weapon_id BIGINT NOT NULL,
     ADD COLUMN secondary_weapon_id BIGINT NOT NULL,
