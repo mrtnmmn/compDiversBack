@@ -9,11 +9,14 @@ import com.avalon.compDivers.utils.JwtUtil;
 import com.avalon.compDivers.api.models.Loadout;
 import com.avalon.compDivers.api.repositories.LoadoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,6 +53,17 @@ public class LoadoutService {
         return loadouts.stream()
                 .map(loadout -> loadoutMapper.toLoadoutDto(loadout))
                 .collect(Collectors.toList());
+    }
+
+    public Page<LoadoutDTO> getOtherUsersLoadouts(HttpServletRequest request, int page, int size) {
+        String username = extractUsernameFromToken(request);
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "creationDate"));
+        Page<Loadout> loadoutsPage = loadoutRepository.findByUserNot(user, pageable);
+
+        return loadoutsPage.map(loadoutMapper::toLoadoutDto);
     }
 
     private String extractUsernameFromToken(HttpServletRequest request) {

@@ -5,6 +5,8 @@ import com.avalon.compDivers.api.dto.LoadoutInputDTO;
 import com.avalon.compDivers.api.models.Loadout;
 import com.avalon.compDivers.api.services.LoadoutService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,5 +27,14 @@ public class LoadoutController {
     @PostMapping
     public Loadout createLoadout(@RequestBody LoadoutInputDTO loadout, HttpServletRequest request) {
         return loadoutService.createLoadout(loadout, request);
+    }
+
+    @GetMapping("/others")
+    public ResponseEntity<Page<LoadoutDTO>> getOtherUsersLoadouts(
+            HttpServletRequest request,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        return ResponseEntity.ok(loadoutService.getOtherUsersLoadouts(request, page, size));
     }
 }
