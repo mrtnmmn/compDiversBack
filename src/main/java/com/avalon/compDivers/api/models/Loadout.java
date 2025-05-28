@@ -56,9 +56,13 @@ public class Loadout {
     @JoinColumn(name = "booster_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_booster"))
     private Booster booster;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "faction_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_faction"))
-    private Faction faction;
+    @ManyToMany
+    @JoinTable(
+            name = "loadout_faction",
+            joinColumns = @JoinColumn(name = "loadout_id"),
+            inverseJoinColumns = @JoinColumn(name = "faction_id")
+    )
+    private Set<Faction> factions;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loadout_user"))
@@ -173,12 +177,12 @@ public class Loadout {
         this.booster = booster;
     }
 
-    public Faction getFaction() {
-        return faction;
+    public Set<Faction> getFactions() {
+        return factions;
     }
 
-    public void setFaction(Faction faction) {
-        this.faction = faction;
+    public void setFactions(Set<Faction> faction) {
+        this.factions = faction;
     }
 
     public User getUser() {

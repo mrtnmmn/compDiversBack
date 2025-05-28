@@ -64,7 +64,7 @@ public class LoadoutMapper {
                 armorPassiveMapper.toDto(loadout.getArmorPassive()),
                 stratagemMapper.toDtoSet(loadout.getStratagems()),
                 boosterMapper.toDto(loadout.getBooster()),
-                factionMapper.toDto(loadout.getFaction()),
+                factionMapper.toDtoSet(loadout.getFactions()),
                 toUserDto(loadout.getUser()),
                 loadout.getCreationDate()
         );
@@ -88,8 +88,6 @@ public class LoadoutMapper {
                 .orElseThrow(() -> new EntityNotFoundException("Throwable not found"));
         Booster booster = boosterRepository.findByUuid(dto.getBooster())
                 .orElseThrow(() -> new EntityNotFoundException("Booster not found"));
-        Faction faction = factionRepository.findByUuid(dto.getFaction())
-                .orElseThrow(() -> new EntityNotFoundException("Faction not found"));
 
         loadout.setPrimaryWeapon(primaryWeapon);
         loadout.setSecondaryWeapon(secondaryWeapon);
@@ -97,7 +95,6 @@ public class LoadoutMapper {
         loadout.setArmorPassive(armorPassive);
         loadout.setThrowable(throwable);
         loadout.setBooster(booster);
-        loadout.setFaction(faction);
 
         Set<Stratagem> stratagems = new HashSet<>();
         for (UUID stratagemUUID : dto.getStratagems()) {
@@ -106,6 +103,14 @@ public class LoadoutMapper {
             stratagems.add(stratagem);
         }
         loadout.setStratagems(stratagems);
+
+        Set<Faction> factions = new HashSet<>();
+        for (UUID factionUUID : dto.getFactions()) {
+            Faction faction = factionRepository.findByUuid(factionUUID)
+                    .orElseThrow(() -> new EntityNotFoundException("Faction not found"));
+            factions.add(faction);
+        }
+        loadout.setFactions(factions);
 
         return loadout;
     }

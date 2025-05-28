@@ -33,7 +33,7 @@ public class LoadoutController {
     public ResponseEntity<Page<LoadoutDTO>> getOtherUsersLoadouts(
             HttpServletRequest request,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size
+            @RequestParam(defaultValue = "2") int size
     ) {
         return ResponseEntity.ok(loadoutService.getOtherUsersLoadouts(request, page, size));
     }

@@ -24,12 +24,12 @@ public class LoadoutInputDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private UUID booster;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private UUID faction;
+    private List<UUID> factions;
 
     public LoadoutInputDTO(String name, String description, UUID primaryWeapon,
                            UUID secondaryWeapon, UUID armor, UUID armorPassive,
                            UUID throwable, List<UUID> stratagems, UUID booster,
-                           UUID faction) {
+                           List<UUID> factions) {
         this.name = name;
         this.description = description;
         this.primaryWeapon = primaryWeapon;
@@ -39,7 +39,7 @@ public class LoadoutInputDTO {
         this.throwable = throwable;
         this.stratagems = stratagems;
         this.booster = booster;
-        this.faction = faction;
+        this.factions = factions;
     }
 
     public LoadoutInputDTO() {
@@ -117,11 +117,11 @@ public class LoadoutInputDTO {
         this.booster = booster;
     }
 
-    public UUID getFaction() {
-        return faction;
+    public List<UUID> getFactions() {
+        return factions;
     }
 
-    public void setFaction(UUID faction) {
-        this.faction = faction;
+    public void setFactions(List<UUID> factions) {
+        this.factions = factions;
     }
 }
