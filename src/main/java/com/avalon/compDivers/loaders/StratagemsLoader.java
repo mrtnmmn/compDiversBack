@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class StratagemsLoader {
@@ -28,20 +29,35 @@ public class StratagemsLoader {
             InputStream inputStream = getClass().getResourceAsStream("/data/stratagems.json");
             List<Stratagem> stratagems = mapper.readValue(inputStream, new TypeReference<List<Stratagem>>() {});
 
-
-            for (Stratagem stratagem : stratagems) {
-                Warbond inputWarbond = stratagem.getWarbond();
+            for (Stratagem incoming : stratagems) {
+                Warbond inputWarbond = incoming.getWarbond();
 
                 if (inputWarbond != null) {
                     Optional<Warbond> warbondFromDb = warbondRepository.findByName(inputWarbond.getName());
-                    stratagem.setWarbond(warbondFromDb.orElse(null));
+                    incoming.setWarbond(warbondFromDb.orElse(null));
                 }
 
-                repository.findByName(stratagem.getName().trim())
-                        .orElseGet(() -> repository.save(stratagem));
+                Optional<Stratagem> existingOpt = repository.findByName(incoming.getName().trim());
+
+                if (existingOpt.isPresent()) {
+                    Stratagem existing = existingOpt.get();
+
+                    existing.setCategory(incoming.getCategory());
+                    existing.setStratagemType(incoming.getStratagemType());
+                    existing.setWarbond(incoming.getWarbond());
+
+                    repository.save(existing);
+                } else {
+                    // Make sure UUID is set if not coming from JSON
+                    if (incoming.getUuid() == null) {
+                        incoming.setUuid(UUID.randomUUID());
+                    }
+
+                    repository.save(incoming);
+                }
             }
 
-            System.out.println("✅ Stratagems loaded into database.");
+            System.out.println("✅ Stratagems loaded and updated in the database.");
         } catch (Exception e) {
             e.printStackTrace();
         }

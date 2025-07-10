@@ -21,6 +21,9 @@ public class Stratagem {
     @Column(nullable = false)
     private String category;
 
+    @Column(nullable = false)
+    private String stratagemType;
+
     @ManyToOne
     @JoinColumn(name = "warbond_id")
     private Warbond warbond;
@@ -30,9 +33,10 @@ public class Stratagem {
         this.uuid = (this.uuid == null ? UUID.randomUUID() : this.uuid);
     }
 
-    public Stratagem(String name, String category, Warbond warbond) {
+    public Stratagem(String name, String category, String stratagemType, Warbond warbond) {
         this.name = name;
         this.category = category;
+        this.stratagemType = stratagemType;
         this.warbond = warbond;
     }
 
@@ -69,6 +73,14 @@ public class Stratagem {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getStratagemType() {
+        return stratagemType;
+    }
+
+    public void setStratagemType(String stratagemType) {
+        this.stratagemType = stratagemType;
     }
 
     public Warbond getWarbond() {

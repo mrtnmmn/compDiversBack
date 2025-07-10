@@ -20,6 +20,7 @@ public class StratagemMapper {
         dto.setUuid(stratagem.getUuid());
         dto.setName(stratagem.getName());
         dto.setCategory(stratagem.getCategory());
+        dto.setStratagemType(stratagem.getStratagemType());
         dto.setWarbond(stratagem.getWarbond() != null ? warbondMapper.toDto(stratagem.getWarbond()) : null);
         return dto;
     }

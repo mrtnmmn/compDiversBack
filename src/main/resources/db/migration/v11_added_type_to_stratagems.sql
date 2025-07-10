@@ -1,0 +1,2 @@
+ALTER TABLE stratagems
+ADD COLUMN stratagem_type VARCHAR(255) NOT NULL DEFAULT 'UNKNOWN';

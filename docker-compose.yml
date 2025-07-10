@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: compdiversback
+      POSTGRES_PASSWORD: divers2
+      POSTGRES_DB: compdivers
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./dump:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
